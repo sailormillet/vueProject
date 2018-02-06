@@ -15,7 +15,7 @@
 //    import HeaderComponent from './components/header.vue'
 //    import OtherComponent from './components/other.vue'
     export default{
-      name: 'helloworld',
+      name: 'alertMessage',
         data(){
             return{
                 msg:'hello vue'

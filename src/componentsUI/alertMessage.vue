@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <header-component/>
-        <div>this is template body</div>
-        <other-component/>
-    </div>
+    <mi-alert>
+         <slot>
+        <div>{{message}}</div>
+         </slot>
+    </mi-alert>
 </template>
 <style>
     body {
@@ -11,17 +11,23 @@
     }
 </style>
 <script>
-    import HeaderComponent from './components/header.vue'
-    import OtherComponent from './components/other.vue'
     export default{
+        created () {
+         
+        },
         data(){
             return {
                 msg: 'hello vue'
             }
         },
-        components: {
-            'other-component': OtherComponent,
-            HeaderComponent,
+          props: {
+                message: String,
+        },
+        methods: {
+
+        },
+         watch: {
+
         }
     }
 </script>
