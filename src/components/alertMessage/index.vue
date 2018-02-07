@@ -3,10 +3,14 @@
         <!--<header-component/>-->
         <div>this is template body</div>
         <div>{{msg}}</div>
+        <masker>
+         <toast message='hello world hello world hello world' ></toast>
+        </masker>
+       
         <!--<other-component/>-->
     </div>
 </template>
-<style>
+<style lang='less'>
     body{
         background-color:#fff;
     }
@@ -15,7 +19,7 @@
 //    import HeaderComponent from './components/header.vue'
 //    import OtherComponent from './components/other.vue'
     export default{
-      name: 'alertMessage',
+    //   name: 'alertMessage',
         data(){
             return{
                 msg:'hello vue'

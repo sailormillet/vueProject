@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-//import milletUI from '@/componentsUI/index'//UI组件所有路由
+import milletUI from '@/componentsUI/index'//UI组件所有路由
 
-//Vue.use(milletUI)
+Vue.use(milletUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
