@@ -1,12 +1,12 @@
 <template>
- <div :class="maskerClass" class="miui-masker">
+ <div class="mi-masker">
          <slot>
          </slot>
  </div>
 
 </template>
 <style lang="less">
-.miui-masker{
+.mi-masker{
     position: fixed;
     width: 100%;
     height: 100%;
@@ -14,27 +14,22 @@
     left: 0;
     z-index: 100;
 }
-.miui-masker_grey{
+.mi-masker_grey{
     background: rgba(0,0,0,0.6)
 }
 </style>
 <script>
     export default{
-         name: 'masker',
         // created () {
          
         // },
-        data(){
-            return {
-            //   show: false
-            }
-        },
+        // data(){
+        //     return {
+        //       message: '1234'
+        //     }
+        // },
           props: {
                 message: String,
-                maskerClass: {
-                    type: String,
-                    default:'miui-masker'
-                },
         },
         // methods: {
 

@@ -5,7 +5,7 @@
     <ul>
       <li>
         <a
-          href="/toast"
+          href="/alertMessage"
           target="_self"
         >
           alertMessage
