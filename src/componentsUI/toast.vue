@@ -72,6 +72,10 @@
                     type: Number,
                     default: 2000
                 },
+                toastClass: {
+                    type: String,
+                    default: 'miui-tost_content'
+                },
                 position:String,
                 isShowMask: {
                     type: Boolean,
@@ -85,6 +89,7 @@
                     'miui-tost_top': this.position === 'top',
                     'miui-tost_bottom': this.position === 'middle',
                     'miui-tost_bottom': this.position === 'bottom',
+                    
 
                 }
 
@@ -96,6 +101,7 @@
         // },
         watch: {
             show (val) {
+                console.log(val)
                 if(val){
                     this.$emit('on-show')
                     this.$emit('input', true)

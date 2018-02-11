@@ -32,6 +32,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## 项目结构
 ***
 
+```bash
 .
 ├── README.md
 ├── build                                           // webpack配置文件
@@ -163,3 +164,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 │       └── index.js
 └── static                                          // 静态资源目录
     └── image
+```
