@@ -1,7 +1,11 @@
 <template>
     <div>
-         <button @click="showPosition('top')">hello</button>
-         <toast   v-model='showPositionValue' message='hello world hello world hello world' :position='position' is-show-mask></toast>
+         <button @click="showPosition('top')">top toast</button>
+         <toast   v-model='showPositionValue' message='hello world top' :position='position' is-show-mask></toast>
+         <button @click="showPosition('middle')">middle toast</button>
+         <toast   v-model='showPositionValue' message='hello world middle' :position='position' is-show-mask></toast>
+            <button @click="showPosition('bottom')">bottom toast</button>
+         <toast   v-model='showPositionValue' message='hello world bottom' :position='position' is-show-mask></toast>
     </div>
 </template>
 <style lang='less'>
@@ -28,11 +32,15 @@
             showPosition(position){
                 this.position=position
                 this.showPositionValue=true
-                // console.log(this.showPositionValue)
-                //      console.log(this.position)
-                     console.log(this)
                      
 
+            },
+            onHide(){
+                console.log('on hide')
+
+            },
+            onShow(){
+                console.log('on show')
             }
         }
 //        components:{

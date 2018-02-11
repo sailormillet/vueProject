@@ -2,9 +2,9 @@
     <div class="mi-toast">
     <masker :maskerClass="maskerClass" v-show="isShowMask && show"> </masker>
     <transition name="currentTransition" >  
-    <div class="miui-tost" v-show="show">
+    <div class="miui-tost" v-show="show" :class="toastClass">
          <slot>
-        <div class="miui-tost_content" :class="toastClass">{{message}}</div>
+        <div class="miui-tost_content" >{{message}}</div>
          </slot>
     </div>
     </transition>
@@ -50,8 +50,6 @@
     export default{
         name: 'toast',
         created () {
-            // console.log(this.value)
-            // console.log(this.show)
          if (this.value) {
             this.show = true
           }
@@ -70,9 +68,9 @@
                 maskerClass:{
                     type: String,
                 },
-                toastClass: {
-                    type: String,
-                    default: 'miui-tost_content'
+                time: {
+                    type: Number,
+                    default: 2000
                 },
                 position:String,
                 isShowMask: {
@@ -82,6 +80,15 @@
 
         },
         computed:{
+            toastClass(){
+                return {
+                    'miui-tost_top': this.position === 'top',
+                    'miui-tost_bottom': this.position === 'middle',
+                    'miui-tost_bottom': this.position === 'bottom',
+
+                }
+
+            }
 
         },
         // methods: {
@@ -89,10 +96,22 @@
         // },
         watch: {
             show (val) {
-            console.log(val)
+                if(val){
+                    this.$emit('on-show')
+                    this.$emit('input', true)
+                    clearTimeout( this.timeout)
+                    this.timeout = setTimeout(()=>{
+                        this.show=false
+                        this.$emit('input', false)
+                        this.$emit('on-hide')
+
+                    },this.time)
+                }
+               
+                // console.log(this.$emit)
             },
             value (val) {
-            console.log(val)
+            this.show=val
             }
         }
     }
