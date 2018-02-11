@@ -1,42 +1,33 @@
 <template>
-<div class="mi-masker mi-masker_grey">
-    <div class="mi-toast mi-toast_bottom" >
+    <div class="mi-toast">
+    <masker :maskerClass="maskerClass" v-show="isShowMask && show"> </masker>
+    <transition name="currentTransition" >  
+    <div class="miui-tost" v-show="show">
          <slot>
-        <div class="mi-toast_content " :toastStyle="styleObj">{{message}}</div>
+        <div class="miui-tost_content" :class="toastClass">{{message}}</div>
          </slot>
     </div>
-</div>
-
+    </transition>
+    </div>
 </template>
 <style lang="less">
-.mi-masker{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-}
-.mi-masker_grey{
-    background: rgba(0,0,0,0.6)
-}
-.mi-toast {
+.miui-tost {
     position: fixed;
     top: 180px;
     z-index: 101;
     text-align: center;
     width: 100%;
 }
-.mi-toast_top{
+.miui-tost_top{
     top:56px
 } 
-.mi-toast_middle{
+.miui-tost_middle{
     top:50%
 }  
-.mi-toast_bottom{
+.miui-tost_bottom{
     top: 80%;
 } 
-.mi-toast_content{
+.miui-tost_content{
     background: #000;
     opacity: 0.75;
     color: #fff;
@@ -47,26 +38,62 @@
     text-align: center;
     max-width: 50%;
 }  
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>
 <script>
+    import masker from './masker'
     export default{
-        // created () {
-         
-        // },
-        // data(){
-        //     return {
-        //       message: '1234'
-        //     }
-        // },
+        name: 'toast',
+        created () {
+            // console.log(this.value)
+            // console.log(this.show)
+         if (this.value) {
+            this.show = true
+          }
+        },
+        data(){
+            return {
+              show: false,
+            }
+        },
+        components: {
+            masker
+        },
           props: {
+                value: Boolean,
                 message: String,
-                styleObj: Object
+                maskerClass:{
+                    type: String,
+                },
+                toastClass: {
+                    type: String,
+                    default: 'miui-tost_content'
+                },
+                position:String,
+                isShowMask: {
+                    type: Boolean,
+                    default: false
+                },
+
+        },
+        computed:{
+
         },
         // methods: {
 
         // },
-        //  watch: {
-
-        // }
+        watch: {
+            show (val) {
+            console.log(val)
+            },
+            value (val) {
+            console.log(val)
+            }
+        }
     }
 </script>

@@ -14,7 +14,7 @@ export default {
 <style lang="less">
 @import './style/milletui/base/reset.less';
 #app {
-  height: 100%;
+  // height: 100%;
   color: #2c3e50;
 
 }

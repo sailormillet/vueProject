@@ -19,9 +19,9 @@ export default new Router({
 
     },
     {
-      path: '/alertMessage',
-      name: 'alertMessage',
-      component: resolve => require(['@/components/alertMessage/index'], resolve)
+      path: '/toast',
+      name: 'toast',
+      component: resolve => require(['@/components/toast'], resolve)
     }
   ]
 })
