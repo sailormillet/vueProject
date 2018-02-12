@@ -5,10 +5,10 @@
     <ul>
       <li>
         <a
-          href="/alertMessage"
+          href="/toast"
           target="_self"
         >
-          alertMessage
+          toast
         </a>
       </li>
       

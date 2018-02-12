@@ -72,10 +72,6 @@
                     type: Number,
                     default: 2000
                 },
-                toastClass: {
-                    type: String,
-                    default: 'miui-tost_content'
-                },
                 position:String,
                 isShowMask: {
                     type: Boolean,
