@@ -22,6 +22,11 @@ export default new Router({
       path: '/toast',
       name: 'toast',
       component: resolve => require(['@/components/toast'], resolve)
+    },
+    {
+      path: '/loading',
+      name: 'loading',
+      component: resolve => require(['@/componentsUI/loading'], resolve)
     }
   ]
 })

@@ -3,10 +3,12 @@
  */
 import toast from './toast';
 import Masker from './masker';
+import loading from './loading';
 
 const components ={
   toast,
-  Masker
+  Masker,
+  loading
 }
 
 export default{

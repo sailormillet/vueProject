@@ -11,7 +11,14 @@
           toast
         </a>
       </li>
-      
+            <li>
+        <a
+          href="/loading"
+          target="_self"
+        >
+          loading
+        </a>
+      </li>
     </ul>
     <h2>Ecosystem</h2>
     <ul>

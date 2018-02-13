@@ -1,10 +1,13 @@
 <template>
     <div class="mi-toast">
-    <masker :maskerClass="maskerClass" v-show="isShowMask && show"> </masker>
+    <masker :class="maskerClass" v-show="isShowMask && show"> </masker>
     <transition name="currentTransition" >  
     <div class="miui-tost" v-show="show" :class="toastClass">
          <slot>
-        <div class="miui-tost_content" >{{message}}</div>
+          <div class="miui-tost_content" >
+               <i class="miui-toast-check"></i>
+              {{message}}
+              </div>
          </slot>
     </div>
     </transition>
@@ -27,6 +30,14 @@
 .miui-tost_bottom{
     top: 80%;
 } 
+.miui-toast-check{
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: url(../img/right.png)no-repeat;
+    background-size: cover;
+    margin: auto;
+}
 .miui-tost_content{
     background: #000;
     opacity: 0.75;
@@ -77,13 +88,17 @@
                     type: Boolean,
                     default: false
                 },
+                isShowIcon:{
+                    type: Boolean,
+                    default: false
+                }
 
         },
         computed:{
             toastClass(){
                 return {
                     'miui-tost_top': this.position === 'top',
-                    'miui-tost_bottom': this.position === 'middle',
+                    'miui-tost_middle': this.position === 'middle',
                     'miui-tost_bottom': this.position === 'bottom',
                     
 
@@ -97,7 +112,6 @@
         // },
         watch: {
             show (val) {
-                console.log(val)
                 if(val){
                     this.$emit('on-show')
                     this.$emit('input', true)

@@ -1,11 +1,15 @@
 <template>
     <div>
+        <p>Toast提示:默认时间是2秒</p>
          <button @click="showPosition('top')">top toast</button>
-         <toast   v-model='showPositionValue' message='hello world top' :position='position' is-show-mask></toast>
          <button @click="showPosition('middle')">middle toast</button>
-         <toast   v-model='showPositionValue' message='hello world middle' :position='position' is-show-mask></toast>
-            <button @click="showPosition('bottom')">bottom toast</button>
-         <toast   v-model='showPositionValue' message='hello world bottom' :position='position' is-show-mask></toast>
+         <button @click="showPosition('bottom')">bottom toast</button>
+         <toast   v-model='showPositionValue' message='hello world ' :position='position' is-show-mask masker-class="mi-masker_grey" :time='5000'></toast>
+         <hr>
+         <!-- <button @click.native="$emit.toast.text('How are you~', 'top')" >lodding</button> -->
+         <!-- <toast   v-model='showPositionValue' message='hello world hello world hello worldhello world ' :position='position' is-show-mask  :time='1000'></toast> -->
+         <!-- <toast  message='loading' :position='position' is-show-mask  :time='1000'></toast> -->
+       
     </div>
 </template>
 <style lang='less'>
@@ -21,6 +25,14 @@
 </style>
 <script>
     export default{
+        created(){
+            console.log(this.$data)
+             console.log(this.$props)
+             console.log(this.$el)
+             console.log(this)
+             
+
+        },
         data(){
             return{
                 showPositionValue: false,
